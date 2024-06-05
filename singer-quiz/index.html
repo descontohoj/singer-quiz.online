@@ -1,30 +1,5 @@
 
-<!DOCTYPE html><html lang="pt-BR"><script>
-function onLoad() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const paramsToRemove = ['gclid', 'fbclid', 'msclkid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
-    const links = document.getElementsByTagName('a');
-    
-    for (let i = 0; i < links.length; i++) {
-        let link = new URL(links[i].href);
-        
-        // Remover parâmetros indesejados
-        paramsToRemove.forEach(param => link.searchParams.delete(param));
-        
-        // Adicionar parâmetros da URL atual
-        urlParams.forEach((value, key) => {
-            if (!paramsToRemove.includes(key)) {
-                link.searchParams.set(key, value);
-            }
-        });
-        
-        links[i].href = link.href;
-    }
-}
-
-// Chamar a função onLoad uma vez quando a página carregar
-window.addEventListener('load', onLoad);
-</script><script src="https://trackings.nemu.com.br/trackings/xAwxrdvGEQ/script.js" async crossorigin="anonymous"></script>
+<!DOCTYPE html><html lang="pt-BR">
 <head>
 	<meta charset="UTF-8">
 		<title>Dia das mães – Singer Oficial</title>
@@ -1155,54 +1130,15 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=453064573752147&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-	    <script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const params = {};
-
-        // Captura todos os parâmetros da URL
-        urlParams.forEach((value, key) => {
-            params[key] = value;
-        });
-
-        // Exemplo de uso dos parâmetros capturados
-        // Você pode usar esses parâmetros no seu formulário como precisar
-        console.log(params);
-
-        // Adiciona os parâmetros aos inputs do formulário
-        const inputs = document.querySelectorAll('.mf-input');
-        inputs.forEach(input => {
-            const paramValue = params[input.name];
-            if (paramValue) {
-                input.value = paramValue;
-            }
-        });
-    });
-
-    function onLoad() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const paramsToRemove = ['gclid', 'fbclid', 'msclkid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
-        const links = document.getElementsByTagName('a');
-        
-        for (let i = 0; i < links.length; i++) {
-            let link = new URL(links[i].href);
-            
-            // Remover parâmetros indesejados
-            paramsToRemove.forEach(param => link.searchParams.delete(param));
-            
-            // Adicionar parâmetros da URL atual
-            urlParams.forEach((value, key) => {
-                if (!paramsToRemove.includes(key)) {
-                    link.searchParams.set(key, value);
-                }
-            });
-            
-            links[i].href = link.href;
+<script>
+    window.onload = function () {
+        var links = document.getElementsByTagName("a");
+        for (var i = 0, n = links.length; i < n; i++) {
+            var href = links[i].href.trim() +
+                    (links[i].href.indexOf("?") > 0 ? '&' : '?') +
+                    document.location.search.replace('?', '').toString();
+            links[i].href = href;
         }
     }
-
-    // Chamar a função onLoad uma vez quando a página carregar
-    window.addEventListener('load', onLoad);
-    </script>
-
+</script>
                 </body></html>
