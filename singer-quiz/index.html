@@ -1129,12 +1129,18 @@ src="https://www.facebook.com/tr?id=453064573752147&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 <script>
     window.onload = function () {
-        var links = document.getElementsByTagName("a");
-        for (var i = 0, n = links.length; i < n; i++) {
-            var href = links[i].href.trim() +
-                    (links[i].href.indexOf("?") > 0 ? '&' : '?') +
-                    document.location.search.replace('?', '').toString();
-            links[i].href = href;
+        var params = document.location.search.replace('?', '').toString();
+        console.log("URL Parameters:", params);  // Verifique se os parâmetros estão sendo capturados
+
+        if (params) {
+            var links = document.getElementsByTagName("a");
+            for (var i = 0, n = links.length; i < n; i++) {
+                var href = links[i].href.trim();
+                if (href && !href.includes(params)) {
+                    links[i].href = href + (href.indexOf("?") > 0 ? '&' : '?') + params;
+                    console.log("Updated Link:", links[i].href);  // Verifique se os links estão sendo atualizados
+                }
+            }
         }
     }
 </script>
