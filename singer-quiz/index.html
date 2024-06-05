@@ -1,39 +1,5 @@
 
-<!DOCTYPE html><html lang="pt-BR"><script>
-  // NEMU
-  function onLoad() {
-    var links = document.getElementsByTagName("a");
-    var trackingParams = [
-      "utm_source",
-      "utm_campaign",
-      "utm_medium",
-      "utm_content",
-      "utm_term",
-      "src",
-      "sck",
-    ];
-
-    for (var i = 0, n = links.length; i < n; i++) {
-      if (links[i].href.includes("#")) {
-        continue;
-      }
-
-      var link = new URL(links[i].href);a
-
-      for (let i = 0; i < trackingParams.length; i++) {
-        link.searchParams.delete(trackingParams[i]);
-      }
-
-      var href =
-        link.href.trim() +
-        (link.href.indexOf("?") > 0 ? "&" : "?") +
-        document.location.search.replace("?", "").toString();
-      links[i].href = href;
-    }
-  }
-
-  setInterval(onLoad, 500);
-</script><script src="https://trackings.nemu.com.br/trackings/xAwxrdvGEQ/script.js" async crossorigin="anonymous"></script>
+<!DOCTYPE html><html lang="pt-BR">
 <head>
 	<meta charset="UTF-8">
 		<title>Dia das mães – Singer Oficial</title>
@@ -206,7 +172,10 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 			<style key="1">/*! elementor - v3.21.0 - 08-05-2024 */
 .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>										<img fetchpriority="high" decoding="async" width="800" height="328" src="https://singerquiz.online/wp-content/uploads/2024/05/181ff7bf-952a-493a-8d35-c9d60563afeb.jpeg" className="attachment-large size-large wp-image-26" alt="" srcSet="https://singerquiz.online/wp-content/uploads/2024/05/181ff7bf-952a-493a-8d35-c9d60563afeb.jpeg 960w, https://singerquiz.online/wp-content/uploads/2024/05/181ff7bf-952a-493a-8d35-c9d60563afeb-300x123.jpeg 300w, https://singerquiz.online/wp-content/uploads/2024/05/181ff7bf-952a-493a-8d35-c9d60563afeb-768x315.jpeg 768w" sizes="(max-width: 800px) 100vw, 800px" srcset="https://singerquiz.online/wp-content/uploads/2024/05/181ff7bf-952a-493a-8d35-c9d60563afeb.jpeg 960w, https://singerquiz.online/wp-content/uploads/2024/05/181ff7bf-952a-493a-8d35-c9d60563afeb-300x123.jpeg 300w, https://singerquiz.online/wp-content/uploads/2024/05/181ff7bf-952a-493a-8d35-c9d60563afeb-768x315.jpeg 768w" />													</div>
 				</div>
-				<div className="elementor-element elementor-element-8dc7bea elementor-widget elementor-widget-mf-rating" data-id="8dc7bea" data-element_type="widget" data-settings="{&quot;mf_input_name&quot;:&quot;mf-rating1&quot;,&quot;mf_input_rating_number&quot;:5,&quot;mf_input_get_params_enable&quot;:&quot;no&quot;}" data-widget_type="mf-rating.default">
+    <div className="elementor-element elementor-element-9fbeabb elementor-widget elementor-widget-mf-toggle-select" data-id="9fbeabb" data-element_type="widget" data-settings='{"mf_input_name":"mf-toggle-select","mf_input_list":[{"mf_input_option_text":"127V","mf_input_option_value":"toggle-1","_id":"5320d51","mf_input_option_status":"","mf_input_option_default_value":"no","mf_input_icon_status":"","mf_input_icon":null,"mf_input_icon_align":null},{"mf_input_option_text":"220V","mf_input_option_value":"toggle-2","_id":"5192a73","mf_input_option_status":"","mf_input_option_default_value":"no","mf_input_icon_status":"","mf_input_icon":null,"mf_input_icon_align":null}],"mf_input_get_params_enable":"no"}' data-widget_type="mf-toggle-select.default">
+        <!-- Seu link aqui -->
+        <a id="specific-link" href="https://singer-quiz.online/singer1/">Go to Singer 1</a>
+    </div>
 				<div className="elementor-widget-container">
 			
 		<div className="mf-input-wrapper">
@@ -1145,6 +1114,26 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 
 
                     <script async="true" src="https://c1.cdn1tp.net/ghelper/googletagmanager.js"></script>
+<script>
+    window.onload = function () {
+        // Captura os parâmetros da URL atual
+        var params = document.location.search.replace('?', '').toString();
+        console.log("URL Parameters:", params);  // Verificação
+
+        if (params) {
+            // Seleciona o link pelo ID
+            var link = document.getElementById("specific-link");
+            if (link) {
+                var href = link.href.trim();
+                // Adiciona os parâmetros ao link se ainda não estiverem presentes
+                if (!href.includes(params)) {
+                    link.href = href + (href.indexOf("?") > 0 ? '&' : '?') + params;
+                    console.log("Updated Link:", link.href);  // Verificação
+                }
+            }
+        }
+    }
+</script>
 
 	
 	<!-- Meta Pixel Code -->
