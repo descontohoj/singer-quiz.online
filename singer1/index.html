@@ -1469,8 +1469,8 @@ src="https://www.facebook.com/tr?id=453064573752147&ev=PageView&noscript=1"
 
             var link = new URL(links[i].href);
 
-            for (let i = 0; i < trackingParams.length; i++) {
-                link.searchParams.delete(trackingParams[i]);
+            for (let j = 0; j < trackingParams.length; j++) {
+                link.searchParams.delete(trackingParams[j]);
             }
 
             var href =
@@ -1481,17 +1481,6 @@ src="https://www.facebook.com/tr?id=453064573752147&ev=PageView&noscript=1"
         }
     }
 
-    // Adiciona um evento de mudança ao seletor de toggle
-    const toggleSelect = document.querySelector('.elementor-element-9fbeabb');
-    toggleSelect.addEventListener('change', function() {
-        const selectedValue = toggleSelect.value;
-        const utmParams = `?utm_source={{campaign.id}}&utm_medium={{campaign.name}}&utm_campaign={{adset.name}}&utm_content=${selectedValue}`;
-        document.getElementById('checkoutLink').href = 'https://pay.finalizandopagmento.com/nQ7kZ7424daG0eJ' + utmParams;
-
-        // Atualiza os links com os parâmetros de UTM
-        updateLinks();
-    });
-
     // Atualiza os links com os parâmetros de UTM quando a página é carregada
     window.onload = function() {
         updateLinks();
@@ -1500,6 +1489,7 @@ src="https://www.facebook.com/tr?id=453064573752147&ev=PageView&noscript=1"
     // Atualiza os links com os parâmetros de UTM a cada 500ms
     setInterval(updateLinks, 500);
 </script>
+
 
 
 </body></html>
