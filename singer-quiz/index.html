@@ -1,38 +1,29 @@
 
 <!DOCTYPE html><html lang="pt-BR"><script>
-  // NEMU
-  function onLoad() {
-    var links = document.getElementsByTagName("a");
-    var trackingParams = [
-      "utm_source",
-      "utm_campaign",
-      "utm_medium",
-      "utm_content",
-      "utm_term",
-      "src",
-      "sck",
-    ];
-
-    for (var i = 0, n = links.length; i < n; i++) {
-      if (links[i].href.includes("#")) {
-        continue;
-      }
-
-      var link = new URL(links[i].href);a
-
-      for (let i = 0; i < trackingParams.length; i++) {
-        link.searchParams.delete(trackingParams[i]);
-      }
-
-      var href =
-        link.href.trim() +
-        (link.href.indexOf("?") > 0 ? "&" : "?") +
-        document.location.search.replace("?", "").toString();
-      links[i].href = href;
+function onLoad() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramsToRemove = ['gclid', 'fbclid', 'msclkid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+    const links = document.getElementsByTagName('a');
+    
+    for (let i = 0; i < links.length; i++) {
+        let link = new URL(links[i].href);
+        
+        // Remover parâmetros indesejados
+        paramsToRemove.forEach(param => link.searchParams.delete(param));
+        
+        // Adicionar parâmetros da URL atual
+        urlParams.forEach((value, key) => {
+            if (!paramsToRemove.includes(key)) {
+                link.searchParams.set(key, value);
+            }
+        });
+        
+        links[i].href = link.href;
     }
-  }
+}
 
-  setInterval(onLoad, 500);
+// Chamar a função onLoad uma vez quando a página carregar
+window.addEventListener('load', onLoad);
 </script><script src="https://trackings.nemu.com.br/trackings/xAwxrdvGEQ/script.js" async crossorigin="anonymous"></script>
 <head>
 	<meta charset="UTF-8">
