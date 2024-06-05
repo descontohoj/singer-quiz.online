@@ -1447,21 +1447,21 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=453064573752147&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-    <script>
-        window.onload = function() {
-            // Obtém os parâmetros da URL atual
-            const urlParams = new URLSearchParams(window.location.search);
-            const nome = urlParams.get('nome');
-            const email = urlParams.get('email');
-            
-            // Preenche os campos do formulário com os parâmetros da URL
-            document.getElementById('nome').value = nome;
-            document.getElementById('email').value = email;
-            
-            // Adiciona os parâmetros da URL ao formulário para serem passados para a próxima URL
-            document.getElementById('myForm').action += `?nome=${nome}&email=${email}`;
-        }
-    </script>
+<script>
+    window.onload = function() {
+        // Obtém os parâmetros da URL atual
+        const urlParams = new URLSearchParams(window.location.search);
+        const nome = urlParams.get('nome');
+        const email = urlParams.get('email');
+        
+        // Preenche os campos do formulário com os parâmetros da URL
+        document.getElementById('nome').value = nome;
+        document.getElementById('email').value = email;
+        
+        // Adiciona os parâmetros da URL ao formulário para serem passados para a próxima URL (checkout)
+        document.getElementById('myForm').action += `?nome=${nome}&email=${email}`;
+    }
+</script>
 	<script>
   // NEMU
   function onLoad() {
