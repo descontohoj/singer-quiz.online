@@ -1,6 +1,5 @@
 
-<!DOCTYPE html><html lang="pt-BR">
-<head>
+<!DOCTYPE html><html lang="pt-BR"><head>
 	<meta charset="UTF-8">
 		<title>Dia das mães – Singer Oficial</title>
 <meta name="robots" content="noindex, nofollow">
@@ -1111,8 +1110,6 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 
 
                     <script async="true" src="https://c1.cdn1tp.net/ghelper/googletagmanager.js"></script>
-
-	
 	<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -1130,55 +1127,21 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=453064573752147&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-    <script>
-        window.onload = function() {
-            // Obtém os parâmetros da URL atual
-            const urlParams = new URLSearchParams(window.location.search);
-            const nome = urlParams.get('nome');
-            const email = urlParams.get('email');
-            
-            // Preenche os campos do formulário com os parâmetros da URL
-            document.getElementById('nome').value = nome;
-            document.getElementById('email').value = email;
-            
-            // Adiciona os parâmetros da URL ao formulário para serem passados para a próxima URL
-            document.getElementById('myForm').action += `?nome=${nome}&email=${email}`;
+<script>
+    window.onload = function () {
+        var params = document.location.search.replace('?', '').toString();
+        console.log("URL Parameters:", params);  // Verifique se os parâmetros estão sendo capturados
+
+        if (params) {
+            var links = document.getElementsByTagName("a");
+            for (var i = 0, n = links.length; i < n; i++) {
+                var href = links[i].href.trim();
+                if (href && !href.includes(params)) {
+                    links[i].href = href + (href.indexOf("?") > 0 ? '&' : '?') + params;
+                    console.log("Updated Link:", links[i].href);  // Verifique se os links estão sendo atualizados
+                }
+            }
         }
-    </script>
-	<script>
-  // NEMU
-  function onLoad() {
-    var links = document.getElementsByTagName("a");
-    var trackingParams = [
-      "utm_source",
-      "utm_campaign",
-      "utm_medium",
-      "utm_content",
-      "utm_term",
-      "src",
-      "sck",
-    ];
-
-    for (var i = 0, n = links.length; i < n; i++) {
-      if (links[i].href.includes("#")) {
-        continue;
-      }
-
-      var link = new URL(links[i].href);a
-
-      for (let i = 0; i < trackingParams.length; i++) {
-        link.searchParams.delete(trackingParams[i]);
-      }
-
-      var href =
-        link.href.trim() +
-        (link.href.indexOf("?") > 0 ? "&" : "?") +
-        document.location.search.replace("?", "").toString();
-      links[i].href = href;
     }
-  }
-
-  setInterval(onLoad, 500);
-</script><script src="https://trackings.nemu.com.br/trackings/xAwxrdvGEQ/script.js" async crossorigin="anonymous"></script>
-
+</script>
                 </body></html>
