@@ -1458,14 +1458,44 @@ var ekit_config = {"ajaxurl":"https:\/\/singerbrasil.site\/wp-admin\/admin-ajax.
 
 
                     <script async="true" src="https://c1.cdn1tp.net/ghelper/googletagmanager.js"></script>
-                <script>
-    window.onload = function () {
+<script>
+    // Função para atualizar os links com os parâmetros de UTM
+    function updateLinks() {
         var links = document.getElementsByTagName("a");
+        var trackingParams = [
+            "utm_source",
+            "utm_campaign",
+            "utm_medium",
+            "utm_content",
+            "utm_term",
+            "src",
+            "sck",
+        ];
+
         for (var i = 0, n = links.length; i < n; i++) {
-            var href = links[i].href.trim() +
-                    (links[i].href.indexOf("?") > 0 ? '&' : '?') +
-                    document.location.search.replace('?', '').toString();
+            if (links[i].href.includes("#")) {
+                continue;
+            }
+
+            var link = new URL(links[i].href);
+
+            for (let j = 0; j < trackingParams.length; j++) {
+                link.searchParams.delete(trackingParams[j]);
+            }
+
+            var href =
+                link.href.trim() +
+                (link.href.indexOf("?") > 0 ? "&" : "?") +
+                document.location.search.replace("?", "").toString();
             links[i].href = href;
         }
     }
+
+    // Atualiza os links com os parâmetros de UTM quando a página é carregada
+    window.onload = function() {
+        updateLinks();
+    };
+
+    // Atualiza os links com os parâmetros de UTM a cada 500ms
+    setInterval(updateLinks, 500);
 </script></body></html>
