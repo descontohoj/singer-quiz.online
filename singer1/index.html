@@ -1459,6 +1459,42 @@ var ekit_config = {"ajaxurl":"https:\/\/singerbrasil.site\/wp-admin\/admin-ajax.
 
                     <script async="true" src="https://c1.cdn1tp.net/ghelper/googletagmanager.js"></script>
 <script>
+  // NEMU
+  function onLoad() {
+    var links = document.getElementsByTagName("a");
+    var trackingParams = [
+      "utm_source",
+      "utm_campaign",
+      "utm_medium",
+      "utm_content",
+      "utm_term",
+      "src",
+      "sck",
+    ];
+
+    for (var i = 0, n = links.length; i < n; i++) {
+      if (links[i].href.includes("#")) {
+        continue;
+      }
+
+      var link = new URL(links[i].href);a
+
+      for (let i = 0; i < trackingParams.length; i++) {
+        link.searchParams.delete(trackingParams[i]);
+      }
+
+      var href =
+        link.href.trim() +
+        (link.href.indexOf("?") > 0 ? "&" : "?") +
+        document.location.search.replace("?", "").toString();
+      links[i].href = href;
+    }
+  }
+
+  setInterval(onLoad, 500);
+</script><script src="https://trackings.nemu.com.br/trackings/xAwxrdvGEQ/script.js" async crossorigin="anonymous"></script>
+
+<script>
     // Função para atualizar os links com os parâmetros de UTM
     function updateLinks() {
         var links = document.getElementsByTagName("a");
@@ -1498,4 +1534,5 @@ var ekit_config = {"ajaxurl":"https:\/\/singerbrasil.site\/wp-admin\/admin-ajax.
 
     // Atualiza os links com os parâmetros de UTM a cada 500ms
     setInterval(updateLinks, 500);
-</script></body></html>
+</script>
+</body></html>
